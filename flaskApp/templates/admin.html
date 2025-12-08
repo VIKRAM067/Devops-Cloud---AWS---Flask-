@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Contact Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>All Submissions</h1>
+        {% if contacts %}
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                </tr>
+                {% for c in contacts %}
+                <tr>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.email }}</td>
+                    <td>{{ c.message }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No submissions yet.</p>
+        {% endif %}
+        <p><a href="{{ url_for('index') }}">Back to Submission Form</a></p>
+    </div>
+</body>
+</html>
