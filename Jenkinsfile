@@ -11,8 +11,8 @@ pipeline {
 
         stage('Deploy with Docker') {
             steps {
-                sh 'docker stop flask_app || true'
-                sh 'docker rm flask_app || true'
+                sh 'docker stop flaskApp_Container || true'
+                sh 'docker rm flaskApp_Container || true'
                 sh 'docker build -t flask_app .'
                 sh 'docker run -d -p 5000:5000 --name flaskApp_Container flask_app'
             }
